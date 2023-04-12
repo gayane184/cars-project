@@ -1,0 +1,19 @@
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import laravel from 'laravel-vite-plugin';
+
+export default defineConfig({
+    build: {
+        chunkSizeWarningLimit: 10000
+    },
+    plugins: [
+        vue(),
+        laravel({
+            input: [
+                'resources/scss/app.scss',
+                'resources/js/app.js'
+            ],
+            refresh: true,
+        }),
+    ],
+});
