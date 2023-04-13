@@ -18,6 +18,7 @@
         "element-plus": "^2.2.20",
         "js-cookie": "^3.0.1",
         "moment": "^2.29.4",
+        "recursive-iterator": "^3.3.0",
         "sass": "^1.61.0",
         "vue": "^3.2.44",
         "vue-loader": "^17.0.1",

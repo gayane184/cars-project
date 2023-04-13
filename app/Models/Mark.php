@@ -12,4 +12,9 @@ class Mark extends Model
     public $timestamps = false;
 
     protected $fillable = ['name'];
+
+    public function models()
+    {
+        return $this->hasMany(\App\Models\Model::class, 'mark_id', 'id');
+    }
 }

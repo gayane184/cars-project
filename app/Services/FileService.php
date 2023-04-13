@@ -124,10 +124,10 @@ class FileService
 
     /**
      * @param UploadedFile $uploadedFile
-     * @param $client
+     * @param $model
      * @return void
      */
-    public function update(UploadedFile $uploadedFile, $client)
+    public function update(UploadedFile $uploadedFile, $model)
     {
         if (!$this->directory) {
             throw new \LogicException('Directory not set.');
@@ -141,9 +141,9 @@ class FileService
 
         $path = str_replace('public/', '', $path);
 
-        $filePath = '/public/' . $client->$relation()->first()->path;
+        $filePath = '/public/' . $model->$relation()->first()->path;
 
-        $client->$relation()->update([
+        $model->$relation()->update([
             'name' => $name,
             'path' => $path
         ]);
@@ -159,10 +159,10 @@ class FileService
      */
     public function delete(File $file)
     {
-        $unlinkPath = Storage::path($file['path']);
+        $filePath = '/public/' . $file->path;
 
-        if (file_exists($unlinkPath)) {
-            unlink($unlinkPath);
+        if (Storage::exists($filePath)) {
+            Storage::delete($filePath);
         }
 
         $file->delete();

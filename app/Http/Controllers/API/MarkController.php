@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Car;
 use App\Models\Mark;
+use App\Services\FileService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -86,12 +89,22 @@ class MarkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param FileService $fileService
      * @param int $id
      * @return JsonResponse
+     * @throws Exception
      */
-    public function destroy(int $id)
+    public function destroy(FileService $fileService, int $id)
     {
         $mark = Mark::query()->findOrFail($id);
+
+        $cars = Car::query()->whereHas('model', function ($q) use ($id) {
+            return $q->where('mark_id', $id);
+        })->get();
+
+        foreach ($cars as $car) {
+            $fileService->delete($car->thumbnail()->first());
+        }
 
         $mark->delete();
 

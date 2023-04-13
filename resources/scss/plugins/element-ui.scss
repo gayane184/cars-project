@@ -12,20 +12,26 @@
 
         .column-actions .cell {
             display: flex;
+            justify-content: center;
             align-items: center;
             gap: 10px;
+        }
+
+        .column-ellipse .cell span {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
 
         .column-image .cell {
             display: flex !important;
             align-items: center !important;
+            justify-content: center;
 
             img {
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-right: 5px;
+                width: 200px;
+                height: 110px;
+                object-fit: contain;
             }
         }
     }
