@@ -1,0 +1,245 @@
+// Table
+.table-parent {
+    overflow-x: auto;
+
+    .el-table {
+        min-width: 1300px !important;
+
+        th > .cell {
+            color: black !important;
+            font-weight: 600 !important;
+        }
+
+        .column-actions .cell {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .column-image .cell {
+            display: flex !important;
+            align-items: center !important;
+
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+
+.el-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.el-notification {
+    z-index: 3000 !important;
+}
+
+.el-pagination.is-background .el-pager {
+    li:not(.disabled).active {
+        background-color: #31AC4EFF;
+    }
+
+    li.active:hover {
+        color: white !important;
+        cursor: pointer;
+    }
+
+    li:not(.disabled):hover {
+        color: #31AC4EFF;
+    }
+}
+
+// Tabs
+.el-tabs__header {
+    padding: 0;
+    position: relative;
+    margin: 0 0 15px;
+}
+
+.el-tabs__nav-scroll {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .el-tabs__nav {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+
+        .el-tabs__item {
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            font-weight: bold;
+        }
+
+        .el-tabs__item:hover {
+            color: #31AC4EFF;
+        }
+
+        .el-tabs__item.is-active {
+            color: #31AC4EFF;
+        }
+
+        .el-tabs__active-bar {
+            background-color: #31AC4EFF;
+            height: 2px;
+        }
+    }
+}
+
+// Radio
+.el-radio {
+    margin-right: 0 !important;
+}
+
+.el-radio-group {
+    display: flex;
+    gap: 15px;
+    margin: 5px 0;
+
+    .el-radio__label {
+        padding-left: 5px;
+    }
+}
+
+// Select
+.el-select {
+    width: 100%;
+}
+
+// Popover
+.el-popconfirm__main {
+    margin: 5px 0 !important;
+}
+
+.el-popconfirm__action {
+    .el-button--text {
+        color: #ffffff;
+        background: orange;
+        padding: 7px 10px;
+        margin-right: 5px;
+
+        &:hover {
+            border: 1px solid orange;
+            color: orange;
+        }
+    }
+}
+
+// Dropdown
+.el-select-dropdown, .el-color-dropdown, .el-date-picker, .el-picker-panel {
+    z-index: 3001 !important;
+}
+
+.el-dropdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .el-dropdown-link {
+        cursor: pointer;
+        outline: none !important;
+
+        i {
+            margin: 0;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+
+    .el-icon-arrow-down:before {
+        color: white;
+    }
+}
+
+.el-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.el-select-dropdown {
+    .option-image {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            object-fit: cover;
+        }
+    }
+}
+
+// Search
+.el-autocomplete-suggestion {
+    width: calc(100vw - 370px) !important;
+}
+
+// Textarea
+.el-textarea__inner {
+    font-family: 'Oxygen', sans-serif;
+}
+
+// Input number
+.el-input-number {
+    width: 100% !important;
+
+    input {
+        text-align: left !important;
+    }
+}
+
+// Time picker
+.el-picker-panel {
+    &__footer {
+        .el-button--text {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .el-picker-panel {
+        left: 30px!important;
+    }
+}
+
+@media (max-width: 700px) {
+    .el-date-range-picker {
+        max-width: 322px;
+        overflow: hidden;
+
+        .el-picker-panel__body-wrapper {
+            width: 100%;
+
+            .el-picker-panel__body {
+                display: grid;
+                min-width: auto;
+
+                .el-picker-panel__content {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

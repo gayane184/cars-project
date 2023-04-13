@@ -18,6 +18,18 @@ const routes = [
         meta: {auth: 'auth', role: 'admin'}
     },
     {
+        path: "/admin/model",
+        name: "admin-model",
+        component: () => import("@/views/admin/model/Index.vue"),
+        meta: {auth: 'auth', role: 'admin'}
+    },
+    {
+        path: "/admin/car",
+        name: "admin-car",
+        component: () => import("@/views/admin/car/Index.vue"),
+        meta: {auth: 'auth', role: 'admin'}
+    },
+    {
         path: "/user/car",
         name: "user-car",
         component: () => import("@/views/user/car/Index.vue"),

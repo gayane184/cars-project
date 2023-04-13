@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Oxygen:wght@300;400&display=swap");
 
-body {
-    font-family: 'Oxygen', sans-serif;
-}
+// Plugins
+@import "plugins/element-ui";
 
-@import "auth/sign-in";
+// Structure
+@import "structure/build";
+@import "structure/popup";
+
+// Views
+@import "views/auth/sign-in";

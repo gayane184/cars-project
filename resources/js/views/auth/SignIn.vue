@@ -16,17 +16,11 @@
                 <el-input
                     @keyup.enter.native="submit()"
                     v-model="credentials.password"
-                    class="with-append"
+                    type="password"
                     name="password"
                     show-password
                     size="large"
-                >
-                    <template slot="append">
-                        <el-icon>
-                            <El-Icon-View></El-Icon-View>
-                        </el-icon>
-                    </template>
-                </el-input>
+                ></el-input>
             </div>
         </div>
         <el-button @click="submit()">Sign In</el-button>
@@ -36,8 +30,8 @@
 <script>
 
 import {$api} from "../../api";
-import {api_url} from "../../constants";
 import {ElMessage} from 'element-plus';
+import {api_url} from "../../constants";
 
 export default {
     data() {

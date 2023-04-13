@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Oxygen', sans-serif;
+}
+
+.scroll-blue {
+    &::-webkit-scrollbar {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px deepskyblue;
+        border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: deepskyblue;
+        border-radius: 5px;
+    }
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+    .field-label {
+        color: #323232FF;
+        margin-bottom: 3px;
+        font-size: 13px;
+        font-weight: 600;
+
+        span {
+            color: #ca2e2e;
+        }
+    }
+
+    .field-error {
+        display: flex;
+        align-items: center;
+        min-height: 20px;
+
+        span {
+            color: #ca2e2e;
+            font-size: 12px;
+            font-weight: bolder;
+            line-height: normal;
+        }
+    }
+
+    &.field-invalid {
+        .el-input__inner, .el-input__inner:focus, .el-input__inner:hover {
+            border-color: #ca2e2e !important;
+        }
+    }
+}
+
+.full-structure {
+    header {
+        display: flex;
+        height: 100px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 25px;
+
+        h1 {
+            margin: 0;
+        }
+    }
+
+    .structure-body {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        height: calc(100vh - 100px);
+
+        .sidebar {
+            border: 1px solid black;
+            padding: 25px;
+
+            .sidebar-items {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+
+                .sidebar-item {
+                    display: flex;
+                    padding: 20px;
+                    border: 1px solid deepskyblue;
+                    color: deepskyblue;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &.active {
+                        background: deepskyblue;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        .structure-content {
+            border: 1px solid;
+            padding: 25px;
+
+            .default-section {
+                .section-title {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+}

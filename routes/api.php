@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\MarkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,8 @@ Route::post('sign-in', [AuthController::class, 'signIn']);
 Route::middleware(['auth:sanctum'])->group(static function () {
     Route::post('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
+
+    Route::middleware('admin_middleware')->group(function () {
+        Route::resource('mark', MarkController::class);
+    });
 });

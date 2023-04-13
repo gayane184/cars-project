@@ -10,8 +10,17 @@ export const $api = () => {
     axios.interceptors.response.use(response => {
         return response;
     }, error => {
+        const messages = {
+            '401': 'Unauthenticated.',
+            '404': 'Record not found.',
+            '405': 'Access denied.',
+            '500': 'Server error.'
+        };
+
+        const status = error?.response?.status;
+
         ElMessage({
-            message: error.response.data.message,
+            message: messages[status] ? messages[status] : 'Something went wrong.',
             showClose: true,
             type: 'warning'
         });
