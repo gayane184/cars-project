@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\MarkController;
+use App\Http\Controllers\API\ModelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,5 +24,6 @@ Route::middleware(['auth:sanctum'])->group(static function () {
 
     Route::middleware('admin_middleware')->group(function () {
         Route::resource('mark', MarkController::class);
+        Route::resource('model', ModelController::class);
     });
 });

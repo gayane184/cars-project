@@ -14,6 +14,25 @@
                             <span>{{ $GetError(errors, 'name') }}</span>
                         </div>
                     </div>
+                    <div :class="`form-field ${$HasError(errors, 'mark_id') ? 'field-invalid' : ''}`">
+                        <div class="field-label">Mark</div>
+                        <el-select
+                            v-model="model.mark_id"
+                            filterable
+                            size="large"
+                            remote
+                            reserve-keyword>
+                            <el-option
+                                v-for="mark in marks"
+                                :key="'mark-' + mark.id"
+                                :label="mark.name"
+                                :value="mark.id"
+                            ></el-option>
+                        </el-select>
+                        <div v-if="$HasError(errors, 'mark_id')" class="field-error">
+                            <span>{{ $GetError(errors, 'mark_id') }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="popup-footer">
@@ -32,6 +51,9 @@
 
     export default {
         props: {
+            marks: {
+                type: Array
+            },
             model: {
                 type: Object
             },
@@ -41,7 +63,7 @@
             toggleCrud: {
                 type: Function
             },
-            fetchMarks: {
+            fetchData: {
                 type: Function
             }
         },
@@ -63,11 +85,11 @@
                 }
             },
             create(model){
-                $api().post(api_url + 'mark', model).then(({data}) => {
+                $api().post(api_url + 'model', model).then(({data}) => {
                     if (data.success){
                         this.errors = {};
 
-                        this.$emit('fetchMarks');
+                        this.$emit('fetchData');
 
                         this.close();
 
@@ -82,11 +104,11 @@
                 });
             },
             update(model, id){
-                $api().put(api_url + 'mark/' + id, model).then(({data}) => {
+                $api().put(api_url + 'model/' + id, model).then(({data}) => {
                     if (data.success){
                         this.errors = {};
 
-                        this.$emit('fetchMarks');
+                        this.$emit('fetchData');
 
                         this.close();
 
