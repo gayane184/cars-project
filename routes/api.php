@@ -4,6 +4,7 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\MarkController;
 use App\Http\Controllers\API\ModelController;
 use App\Http\Controllers\API\CarController;
+use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +29,9 @@ Route::middleware(['auth:sanctum'])->group(static function () {
         Route::resource('model', ModelController::class);
         Route::resource('car', CarController::class);
         Route::post('update-car-status/{id}', [CarController::class, 'updateStatus']);
+    });
+
+    Route::middleware('user_middleware')->group(function () {
+        Route::get('cars', [UserController::class, 'cars']);
     });
 });

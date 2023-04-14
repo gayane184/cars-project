@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="full-structure" v-if="side === 'auth'">
+        <div :class="`full-structure${$User() && $User()['role'] === 'user' ? ' without-sidebar' : ''}`" v-if="side === 'auth'">
             <Header></Header>
             <div class="structure-body">
                 <Sidebar></Sidebar>
@@ -16,10 +16,12 @@
 </template>
 
 <script>
+    import helper from "./mixins/helper";
     import Header from "./components/Header.vue";
     import Sidebar from "./components/Sidebar.vue";
 
     export default {
+        mixins: [helper],
         components: {Header, Sidebar},
         computed: {
             side: function () {

@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar">
-        <div v-if="$User().role === 'admin'" class="sidebar-items">
+        <div v-if="$User()?.role === 'admin'" class="sidebar-items">
             <router-link :to="{name: 'admin-mark'}" class="sidebar-item" active-class="active" tag="div">
                 <div class="sidebar-item-name">Marks</div>
             </router-link>

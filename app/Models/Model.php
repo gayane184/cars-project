@@ -17,4 +17,9 @@ class Model extends EloquentModel
     {
         return $this->hasOne(Mark::class, 'id', 'mark_id');
     }
+
+    public function cars()
+    {
+        return $this->hasMany(Car::class, 'model_id', 'id');
+    }
 }

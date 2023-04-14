@@ -138,4 +138,14 @@ body {
             }
         }
     }
+
+    &.without-sidebar {
+        .structure-body {
+            grid-template-columns: 100%;
+
+            .sidebar {
+                display: none;
+            }
+        }
+    }
 }
